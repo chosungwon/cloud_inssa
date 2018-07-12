@@ -1,0 +1,177 @@
+html{
+  height: 100%;
+}
+
+body {
+  background-image: url('img/login_background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  margin: 0;
+  display: flex;
+  height: 100%;
+}
+.sign_up {
+  align-items: center;
+  margin: auto;
+  padding: 60px 140px;
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+.sign_up>.sign_up_title {
+  text-align: center;
+  font-family: 'Gugi', cursive;
+}
+select#e_select {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 13px;
+  border-bottom: 2px solid white;
+  font-family: 'Gugi', cursive;
+}
+select#e_select:focus{
+  outline: none;
+}
+
+.sign_up>.sign_up_title>img {
+  width: 60px;
+  height: 50px;
+}
+
+.sign_up>.sign_up_title>span {
+  font-size: 60px;
+}
+
+.sign_up>.sign_up_ex {
+  font-family: 'Gugi', cursive;
+  text-align: center;
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+  width: 580px;
+  margin: auto;
+}
+
+.sign_up>.sign_up_ex>span {
+  font-size: 30px;
+}
+
+.sign_up .sign_up_id, .sign_up_pw, .sign_up_rp, .sign_up_name, .sign_up_birthday, .sign_up_mail, .sign_up_phonenumber, .sign_up_join {
+  text-align: center;
+  margin: 20px auto;
+  width: 580px;
+}
+.sign_up_name{
+  display: flex;
+}
+.mail{
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 5px 0px;
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+  font-family: 'Gugi', cursive;
+  width: 270px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.space{
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 5px 0px;
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+  font-family: 'Gugi', cursive;
+  width: 160px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sign_up .id, .pw, .rp, .fn, .ln, .birth, .pn {
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 5px 0px;
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+  font-family: 'Gugi', cursive;
+  width: 580px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sign_up .id:focus, .pw:focus, .rp:focus, .fn:focus, .ln:focus, .birth:focus, .mail:focus, .space:focus, .pn:focus {
+  outline: none;
+}
+
+.sign_up_id>input::placeholder {
+  color: white;
+}
+
+.sign_up_pw>input::placeholder {
+  color: white;
+}
+
+.sign_up_rp>input::placeholder {
+  color: white;
+}
+
+.sign_up_name>input::placeholder {
+  color: white;
+}
+
+.birth::placeholder{
+  color: white;
+}
+
+.sign_up_mail>input::placeholder {
+  color: white;
+}
+
+.sign_up_phonenumber>input::placeholder {
+  color: white;
+}
+.sign_up>.sign_up_name .fn, .ln {
+  flex: 1;
+}
+.sign_up>.sign_up_name .fn{
+  margin-right: 3px;
+}
+
+.sign_up>.sign_up_name .ln{
+  margin-left: 3px;
+}
+
+.sign_up>.sign_up_mail>.text {
+  font-family: 'Gugi', cursive;
+}
+
+.sign_up>.sign_up_join {
+  width: 600px;
+  margin: 10px auto;
+}
+
+.join {
+  width: 500px;
+  height: 60px;
+  font-size: 40px;
+  background-color: #2E9AFE;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  font-family: 'Gugi', cursive;
+}
+
+.join:hover {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  opacity: 0.9;
+}
