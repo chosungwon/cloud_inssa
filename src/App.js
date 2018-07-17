@@ -6,7 +6,9 @@ import Form from "./Form";
 
 
 class App extends Component {
-
+    handleCreate = (data) =>{
+        console.log(data);
+    }
   render() {
     return (
         <div className={"sign_up"}>
@@ -17,7 +19,7 @@ class App extends Component {
             <div className={"sign_up_ex"}>
                 <span>Create your Cloud_Inssa Account</span>
             </div>
-            <Form/>
+            <Form onCreate={this.handleCreate}/>
         </div>
     );
   }
