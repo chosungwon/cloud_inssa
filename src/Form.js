@@ -8,7 +8,6 @@ class Form extends Component {
         na: '',
         birth: '',
         e1: '',
-        e2: '',
         ph: '',
         e_select: '',
         checkId: '',
@@ -16,12 +15,18 @@ class Form extends Component {
         checkRp: '',
         checkNa: '',
         checkBi: '',
+        checkE1: '',
+        checkE2: '',
+        checkPh: '',
 
         idColor: '',
         pwColor: '',
         rpColor: '',
         naColor: '',
         biColor: '',
+        e1Color: '',
+        e2Color: '',
+        phColor: ''
     }
     handleChange = async (e) => {
         await this.setState({
@@ -38,6 +43,12 @@ class Form extends Component {
         const naType = /^[a-zA-Z/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
         const birth = this.state.birth;
         const biType = /[0-9]{6}/;
+        const e1 = this.state.e1;
+        const e1Type = /^[a-z0-9]{5,20}$/;
+        const e2 = this.state.e_select;
+        const e2Type = /[a-z.]/;
+        const ph = this.state.ph;
+        const phType = /[0-9]{11}/;
 
         if (idType.test(id)) {
             this.setState({
@@ -103,6 +114,45 @@ class Form extends Component {
                 biColor: 'red'
             })
         }
+
+        if(e1Type.test(e1)){
+            this.setState({
+                checkE1: '이메일 통과',
+                e1Color: 'green'
+            })
+        }
+        else{
+            this.setState({
+                checkE1: '이메일 불통과',
+                e1Color: 'red'
+            })
+        }
+
+        if(e2Type.test(e2)){
+            this.setState({
+                checkE1: '도메인 통과',
+                e2Color: 'green'
+            })
+        }
+        else{
+            this.setState({
+                checkE1: '도메인이 유효하지않습니다',
+                e2Color: 'red'
+            })
+        }
+
+        if(phType.test(ph)){
+            this.setState({
+                checkPh: '전화번호 통과',
+                phColor: 'green'
+            })
+        }
+        else{
+            this.setState({
+                checkPh: '전화번호를 -없이 제대로 입력해주세요',
+                phColor: 'red'
+            })
+        }
     }
 
     selectChange = async (e) => { //이메일 셀렉트박스
@@ -119,7 +169,6 @@ class Form extends Component {
                 e_Check: false
             })
         }
-        await console.log(this.state.e_select)
     }
     email = (e) => { //이메일 직접입력
         const email = this.state.e_Check;
@@ -145,11 +194,23 @@ class Form extends Component {
         const underBi = {
             color : this.state.biColor
         }
+        const underE1 = {
+            color : this.state.e1Color
+        }
+        const underE2 = {
+            color : this.state.e2Color
+        }
+        const underPh = {
+            color : this.state.phColor
+        }
         let checkId = this.state.checkId;
         let checkPw = this.state.checkPw;
         let checkRp = this.state.checkRp;
         let checkNa = this.state.checkNa;
         let checkBi = this.state.checkBi;
+        let checkE1 = this.state.checkE1;
+        let checkE2 = this.state.checkE2;
+        let checkPh = this.state.checkPh;
         return (
             <form id={"sign"} name={"sign"}>
                 <div className={"sign_up_id"}>
@@ -182,9 +243,11 @@ class Form extends Component {
                 <div className={"sign_up_mail"}>
                     <input type={"text"} className={"mail"} placeholder={"이메일"} width={"270px"} value={this.state.e1}
                            onChange={this.handleChange} name={"e1"}/>
+                    <span style={underE1}>{checkE1}</span>
                     <span className={"text"}>@</span>
-                    <input className={"space"} type={"text"} width={"160px"} name={"e2"} value={this.state.e_select}
+                    <input className={"space"} type={"text"} width={"160px"} id={"e_select"} name={"e_select"} value={this.state.e_select}
                            onChange={this.email}/>
+                    <span style={underE2}>{checkE2}</span>
                     <select id={"e_select"} name={"e_select"} onChange={this.selectChange}>
                         <option value={""}>직접입력</option>
                         <option name="naver.com" id={"naver.com"} value={"naver.com"}>naver.com</option>
@@ -194,7 +257,8 @@ class Form extends Component {
                 </div>
                 <div className={"sign_up_phonenumber"}>
                     <input className={"pn"} type={"text"} placeholder={"전화번호"} value={this.state.ph}
-                           onChange={this.handleChange} name={"ph"}/>
+                           onChange={this.handleChange} name={"ph"} maxLength={11}/>
+                    <span style={underPh}>{checkPh}</span>
                 </div>
                 <div className={"sign_up_join"}>
                     <button className={"join"}>Sign Up</button>
