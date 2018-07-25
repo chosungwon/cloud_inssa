@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 class Form extends Component {
     state = {
@@ -27,6 +28,27 @@ class Form extends Component {
         e1Color: '',
         e2Color: '',
         phColor: ''
+    }
+
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        const a=this.state.e1;
+        const b=this.state.e_select;
+        const c = a.concat(b);
+        const user = {
+            id: this.state.id,
+            pw: this.state.pw,
+            na: this.state.na,
+            birth: this.state.birth,
+            email: c,
+            ph: this.state.ph
+        };
+
+        axios.post(`http://192.168.219.105:3000/register`, { user })
+            .then(res=>{
+                console.log(res);
+                console.log(res.data);
+            })
     }
     handleChange = async (e) => {
         await this.setState({
@@ -212,7 +234,7 @@ class Form extends Component {
         let checkE2 = this.state.checkE2;
         let checkPh = this.state.checkPh;
         return (
-            <form id={"sign"} name={"sign"}>
+            <form id={"sign"} name={"sign"} onSubmit={this.handleSubmit}>
                 <div className={"sign_up_id"}>
                     <input type={"text"} name={"id"} className={"id"} placeholder={"아이디"} value={this.state.id}
                            onChange={this.handleChange} maxLength={20}/>
@@ -248,7 +270,7 @@ class Form extends Component {
                     <input className={"space"} type={"text"} width={"160px"} id={"e_select"} name={"e_select"} value={this.state.e_select}
                            onChange={this.email}/>
                     <span style={underE2}>{checkE2}</span>
-                    <select id={"e_select"} name={"e_select"} onChange={this.selectChange}>
+                    <select onChange={this.selectChange}>
                         <option value={""}>직접입력</option>
                         <option name="naver.com" id={"naver.com"} value={"naver.com"}>naver.com</option>
                         <option name="gmail.com" id={"gmail.com"} value={"gmail.com"}>gmail.com</option>
